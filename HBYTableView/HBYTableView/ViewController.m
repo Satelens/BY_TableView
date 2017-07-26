@@ -32,11 +32,14 @@
     }];
     
     _tableView.dataSource = _dataSoucre;
-    HBYTableViewDelegate *tableViewDelegate = [[HBYTableViewDelegate alloc] init];
-    _tableView.delegate = tableViewDelegate;
+    _tableView.delegate = self;
     [_dataSoucre addModels:@[@"1"]];
     [_tableView reloadData];
     
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"123");
 }
 
 - (void)didReceiveMemoryWarning {
