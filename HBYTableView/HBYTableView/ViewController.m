@@ -17,6 +17,8 @@
 
 @property (strong, nonatomic) HBYDataSource *dataSoucre;
 
+@property (strong, nonatomic) HBYTableViewDelegate *delegate;
+
 @end
 
 @implementation ViewController
@@ -30,21 +32,18 @@
     _dataSoucre = [[HBYDataSource alloc] initWithIdentifier:@"Cell" configureBlock:^(id cell, id model, NSIndexPath *indexPath) {
         ((TmpCell *)cell).label1.text = model;
     }];
+    _delegate = [[HBYTableViewDelegate alloc] init];
+    _delegate.viewController = self;
     
     _tableView.dataSource = _dataSoucre;
-    _tableView.delegate = self;
-    [_dataSoucre addModels:@[@"1"]];
+    _tableView.delegate = _delegate;
+    [_dataSoucre addModels:@[@"1", @"2", @"3"]];
     [_tableView reloadData];
     
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"123");
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
