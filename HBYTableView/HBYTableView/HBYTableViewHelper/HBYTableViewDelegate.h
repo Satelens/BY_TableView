@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HBYTableViewDelegate : NSObject
+@interface HBYTableViewDelegate : NSObject <UITableViewDelegate>
 
 @property (nonatomic, weak)  id<UITableViewDelegate> viewController;
 

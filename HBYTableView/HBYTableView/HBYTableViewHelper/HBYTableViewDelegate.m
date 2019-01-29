@@ -8,7 +8,7 @@
 
 #import "HBYTableViewDelegate.h"
 
-@implementation HBYTableViewDelegate
+@implementation HBYTableViewDelegate 
 
 - (id)forwardingTargetForSelector:(SEL)aSelector {
     
